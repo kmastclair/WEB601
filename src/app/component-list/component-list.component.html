@@ -1,0 +1,12 @@
+<div *ngFor="let content of contentListItems; let i =index" style="padding-bottom:20px">
+    <img [src]="content.imgURL" (click)="clickHandler(i)" alt={{content.title}} style="height:50px">
+    <h2>{{content.title}}</h2>
+    <div>{{content.description}}</div>
+    <div>Creator: {{content.creator}}</div>
+    <div>Type: {{content.type}}</div>
+    <div>Tags: 
+        <ng-container *ngFor="let tag of content.tags">
+            {{tag}},
+        </ng-container>
+    </div>
+</div>
