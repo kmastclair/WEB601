@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Content } from '../content';
 import { ContentService } from '../services/content.service'
+
 
 @Component({
   selector: 'app-component-list',
   templateUrl: './component-list.component.html',
-  styleUrls: ['./component-list.component.css']
+  styleUrls: ['./component-list.component.scss']
 })
 
 export class ComponentListComponent {
@@ -36,5 +38,11 @@ export class ComponentListComponent {
     .subscribe(() =>
     console.log("Content updated successfully")
     );
-  }    
+  }   
+  
+  clickEvent(v:string){
+    alert(v);
+  }
 }
+
+
