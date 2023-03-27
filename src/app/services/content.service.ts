@@ -27,4 +27,9 @@ export class ContentService {
   updateContent(contentItem: Content): Observable<any>{
     return this.http.put("api/content", contentItem, this.httpOptions);
   }  
+
+  getContentItem(id: number): Observable<Content>{
+    console.log("Retrieving OBSERVABLE content item");
+    return this.http.get<Content>("api/content/" + id);
+  }
 }

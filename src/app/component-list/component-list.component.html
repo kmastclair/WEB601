@@ -1,6 +1,6 @@
 
 <mat-form-field>
-    <input matInput placeholder="Enter Text Here" #cardName />
+    <input matInput placeholder="Enter Text" #cardName style="background-color:#333333" />
 </mat-form-field>
 
 <div style="padding: 0px 0 10px 0">
@@ -17,7 +17,15 @@
     <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
+<div style="padding-top:25px">
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu" yPosition="above">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Test Item</button>
+</mat-menu>
 
+</div>
 <div *ngFor="let content of contentListItems; let i =index" style="padding-bottom:20px">
     <img [src]="content.imgURL" (click)="clickHandler(i)" alt={{content.title}} style="height:50px">
     <h2>{{content.title}}</h2>

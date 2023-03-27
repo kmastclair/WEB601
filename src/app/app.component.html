@@ -1,1 +1,5 @@
-<app-component-list></app-component-list>
+<a routerLink="componentList" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Content List</a><br />
+<a routerLink="componentList/3" routerLinkActive="active"> The answer to the universe and everything </a><br />
+<a href="pagewillnotbefound"> Invalid page link </a><br/>
+
+<router-outlet></router-outlet>

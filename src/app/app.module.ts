@@ -14,22 +14,31 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
+import {MatMenuModule} from '@angular/material/menu';
+
+import {AppRoutingModule} from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ComponentDetailComponent } from './component-detail/component-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentListComponent
+    ComponentListComponent,
+    PageNotFoundComponent,
+    ComponentDetailComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false, delay: 1000, }),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false, delay: 1000 }),
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatMenuModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
