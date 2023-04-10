@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {AppRoutingModule} from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComponentDetailComponent } from './component-detail/component-detail.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,13 @@ import { ComponentDetailComponent } from './component-detail/component-detail.co
     MatNativeDateModule,
     MatDatepickerModule,
     MatMenuModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
